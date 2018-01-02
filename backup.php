@@ -7,6 +7,13 @@ require "gdrive.php";
 
 $host = $_SERVER['HTTP_HOST'];
 
+$files = glob('tmpbck/*');
+foreach ($files as $file) {
+    if (is_file($file)) {
+        unlink($file);
+    }
+}
+
 try {
 
     $date    = date("d-m-Y");
